@@ -18,8 +18,6 @@ Nuorodos į sukurto prototipo schemas:
 - [Prototipo jungimas TinkerCAD aplinkoje](img/arduino_gas_detector_circuit.png) 
 - [Prototipo schema](img/arduino_gas_detector_schema.png)
 
-## Veikimas
-
 ## Tolimesni patobulinimai
 
 ### Sensorių pritaikymas realioms sąlygoms
