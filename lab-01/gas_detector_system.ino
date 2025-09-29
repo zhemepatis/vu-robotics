@@ -7,8 +7,8 @@
 
 #define RESISTANCE_L 10000 // ohms
 #define RESISTANCE_O 1123.31 // ohms
-#define A 1021.0
-#define B -2.7887
+#define A 3773.58
+#define B -1.54
 #define GAS_THRESHOLD 10000 // ppm
 
 #define DEBOUNCE_DELAY 20 // ms
