@@ -1,10 +1,9 @@
-#define GAS_SENSOR_PIN 0
+#define POWER_SUPPLY 5 // volts
 
+#define GAS_SENSOR_PIN 0
 #define MOTOR_PIN 2
 #define BUZZER_PIN 4
 #define BTN_PIN 7
-
-#define POWER_SUPPLY 5 // volts
 
 #define RESISTANCE_L 10000 // ohms
 #define RESISTANCE_O 1123.31 // ohms
