@@ -4,9 +4,15 @@
 #define BUZZER_PIN 4
 #define BTN_PIN 7
 
-#define DEBOUNCE_DELAY 20 // ms
+#define POWER_SUPPLY 5 // volts
 
-#define GAS_THRESHOLD 100 // ?
+#define RESISTANCE_L 10000 // ohms
+#define RESISTANCE_O 1123.31 // ohms
+#define A 1021.0
+#define B -2.7887
+#define GAS_THRESHOLD 10000 // ppm
+
+#define DEBOUNCE_DELAY 20 // ms
 
 long lastDebounceTime = 0;
 int lastBtnState = HIGH;
@@ -26,7 +32,15 @@ void setup()
 void loop()
 {
   	int btnInput = digitalRead(BTN_PIN);
+  
 	int gasInput = analogRead(GAS_SENSOR_PIN);
+  	
+  	float voltage = gasInput / 1023.0 * POWER_SUPPLY;
+  	float resistance_s = RESISTANCE_L * (POWER_SUPPLY / voltage - 1) / voltage;
+  	float ratio = resistance_s / RESISTANCE_O;
+  	float ppm = A * pow(ratio, B);
+      
+  	Serial.println(ppm);
   	
   	if (btnInput != lastBtnState)
     {
@@ -43,12 +57,12 @@ void loop()
         }
     }
 
-    if (!ventilationIsOn && gasInput >= GAS_THRESHOLD)
+    if (!ventilationIsOn && ppm >= GAS_THRESHOLD)
     {
     	activateVentilation();
      	activateAlarm();
     }
-    else if (ventilationIsOn && gasInput < GAS_THRESHOLD)
+    else if (ventilationIsOn && ppm < GAS_THRESHOLD)
     {
         deactivateVentilation();
     }
