@@ -10,7 +10,7 @@ Sukurti sistemą aptinkančią pavojingą  dujų lygmenį ir paleidžiančią į
 - Pjezo-elektrinis garsiakalbis
 - Nekintamos srovės motoras
 - Mygtukas
-- Rezisotriai (2 x 1 kilo-omai)
+- Rezistoriai
 - Laidai
 
 ## Prototipo schema
